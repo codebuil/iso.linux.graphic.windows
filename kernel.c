@@ -143,7 +143,7 @@ void box(int x,int y,int x1,int y1,char b)
 	int nn=y1-y;
 	if (y1>=y && x1>=x && x<320 && x>-1 && y>-1 && y<200 && x1<320 && x1>-1 && y1>-1 && y1<200){
 	for (n=0;n<nn;n=n+1)   
-			hline(x,n+y,x1,0);
+			hline(x,n+y,x1,b);
 			}
 }
  void cls()
@@ -220,19 +220,9 @@ void invertScreen() {
 		NULL=0;
 		
 		memoryStart = (unsigned char *)0x200000;
-		for (n=0;n<150;n=n+8)   
-			hline(0,n,319,0);
-		for (n=0;n<300;n=n+8)   
-			vline(n,0,199,0);
-		box(150,75,175,100,0);	   	
-		
-		bmp=createBitmap(x,y);
-		addr=(unsigned char*)bmp->data;
-		
-		memfill(addr,x*y,9);
-		pbitmap(3,3,bmp) ;
-		invertScreen(); 
-		invertScreenRightToLeft(); 
+		for (n=0;n<6;n=n+1)   
+			box(n*10,n*10,n*10+60,n*10+30,n);
+
 		return 0;	  
         }
  
